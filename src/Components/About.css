@@ -1,0 +1,29 @@
+.about{
+    position: absolute;
+    background-color: aliceblue;
+    margin-top: 8vh;
+    height: 92vh;
+    width: 100%;
+}
+.about-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    /* background-color: aqua; */
+}
+.about-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1240px;
+    /* background-color: aquamarine; */
+    font-family: "SFPro";
+}
+.overview{
+    width: 500px;
+}
+.features{
+    width: 500px;
+}
