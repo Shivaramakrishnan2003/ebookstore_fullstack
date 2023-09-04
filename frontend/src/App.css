@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  background-color: aliceblue;
+}
+@font-face {
+  font-family: "SFPro";
+  src: local("SFPro"),
+  url("./Components/Fonts/SFProText-Regular.ttf") format("truetype");
+  font-weight: bold;
+ }
+@font-face {
+  font-family: "SFProSemiBold";
+  src: local("SFProSemiBold"),
+  url("./Components/Fonts/SFProText-SemiBold.ttf") format("truetype");
+  font-weight: bold;
+ }

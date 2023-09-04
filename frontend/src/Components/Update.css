@@ -1,0 +1,19 @@
+.update{
+    position: absolute;
+    width: 100%;
+}
+.update-container{
+    margin-top: 8vh;
+    height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+.update-form-container{
+    padding: 3%;
+    width: 500px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px #ccc;
+    background-color: rgb(176, 212, 221);
+}

@@ -1,0 +1,30 @@
+.inventory{
+    position: absolute;
+    height: 92vh;
+    margin-top: 8vh;
+    width: 100%;
+    background-color: aliceblue;
+}
+.inventory-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    /* background-color: aqua; */
+}
+.properties{
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    border-radius: 20px;
+    background-color: rgb(176, 212, 221);
+    box-shadow: 0px 0px 5px #ccc;
+    justify-content: space-around;
+    font-family: "SFPro";
+    gap: 10px;
+}
+.ppt-item{
+    padding: 10%;
+    /* background-color: aquamarine; */
+}
