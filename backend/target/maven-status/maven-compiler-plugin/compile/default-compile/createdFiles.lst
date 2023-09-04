@@ -1,0 +1,6 @@
+com\ebookstore\main\EBookStoreApplication.class
+com\ebookstore\main\model\Book.class
+com\ebookstore\main\repository\BookRepo.class
+com\ebookstore\main\model\Customer.class
+com\ebookstore\main\controller\BookController.class
+com\ebookstore\main\service\BookService.class
