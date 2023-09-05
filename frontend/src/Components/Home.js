@@ -30,6 +30,7 @@ function Home() {
     function fetchAllDetails(){
       console.log("Fetched all");
       Bookservice.getBooks()
+      //axios.post('localhost')
       .then((response)=>{
         console.log(response.data)
         setAllDetails(response.data)
@@ -90,6 +91,10 @@ function Home() {
         return e.bookDetails.genre.toLowerCase().includes("children")
     })
 
+    const popularByRegion = alldetails.filter((e) => {
+        return e.bookDetails.language.toLowerCase().includes("tamil")
+    })
+
     const CustomWidthTooltip = styled(({ className, ...props }) => (
       <Tooltip {...props} classes={{ popper: className }} />
     ))({
@@ -146,6 +151,25 @@ function Home() {
               </div>
             </div>
             <hr/>
+            <div>
+              <div>
+                <h2 style={{fontFamily:"SFProSemiBold"}}>Popular in தமிழ்</h2>
+              </div>
+              <div>
+                {popularByRegion.map
+                  (detail=>
+                    <div key={detail.bookId} className='best-seller list'>
+                      <div>
+                        <p>
+                          {detail.bookName}
+                        </p>
+                      </div>
+                    </div>
+                )
+              }
+              </div>
+            </div>
+            <hr/> 
           </div>
 
           <div className='main-content'>
