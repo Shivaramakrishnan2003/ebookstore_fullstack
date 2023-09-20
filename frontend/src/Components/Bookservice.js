@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 let id, price;
@@ -29,6 +28,9 @@ class Bookservice{
     }
     getTotalPages(){
         return axios.get("http://localhost:8080/getTotalPages");
+    }
+    getBestSellers(){
+        return axios.get("http://localhost:8080/queries/get/bestSellers")
     }
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Bookservice from'./Bookservice'
 import './Login.css'
 import { useNavigate } from 'react-router';
@@ -22,17 +22,22 @@ function Login() {
   };
 
   let canLog = false;
+
+  useEffect(()=>{
+    Bookservice.getCustomers()
+    .then((response)=>{
+      console.log(response.data)
+      setCred(response.data)
+    })
+    console.log("Fetched");
+  },[])
+
   const handleSubmit = (e) => {
         e.preventDefault();
         console.log(`Username: ${username}, Password: ${password}`)
 
         try{
-            Bookservice.getCustomers()
-            .then((response)=>{
-                console.log(response.data)
-                setCred(response.data)
-            })
-            console.log("Fetched");
+            
             cred.forEach( (detail) => {
                     if(detail.custEmail === username && detail.custPass === password){
                         canLog = true;
@@ -53,7 +58,6 @@ function Login() {
         }
     }
     
-
   return (
     <div>
       <div className='login'>

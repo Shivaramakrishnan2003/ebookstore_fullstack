@@ -8,15 +8,19 @@ import Menubar from './Menubar';
 import Footer from './Footer';
 import { Tooltip, Typography, tooltipClasses } from '@mui/material';
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 function Home() {
 
   const [alldetails, setAllDetails] = useState([]);
+  const [bestdetails, setBestDetails] = useState([]);
   const [details, setDetails] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [searched,setSearched] = useState(false);
   let [page, setPage] = useState(0);
   const [totalpages, setTotalPages] = useState(0);
+  let navi = useNavigate('')
 
     function FetchDetails(page){
       console.log("Fetched by page");
@@ -35,11 +39,15 @@ function Home() {
         console.log(response.data)
         setAllDetails(response.data)
       })
+      Bookservice.getBestSellers()
+      .then((response)=>{
+        console.log(response.data)
+        setBestDetails(response.data)
+      })
       Bookservice.getTotalPages()
       .then((response)=>{
         setTotalPages(Math.ceil(response.data/8));
         console.log(response.data);
-        // console.log('total' + totalpages);
       })
     }
 
@@ -83,9 +91,6 @@ function Home() {
       }
     })
     
-    const bestSellers = alldetails.filter((e) => {
-        return e.bookName.toLowerCase().includes("harry")
-    })
 
     const trending = alldetails.filter((e) => {
         return e.bookDetails.genre.toLowerCase().includes("children")
@@ -118,7 +123,7 @@ function Home() {
                 <h2 style={{fontFamily:"SFProSemiBold"}}>Best sellers</h2>
               </div>
               <div>
-                {bestSellers.map
+                {bestdetails.map
                   (detail=>
                     <div key={detail.bookId} className='best-seller list'>
                       <div>
@@ -204,7 +209,6 @@ function Home() {
                         </p>
                         ₹{detail.price}<br/>
                       </div>
-                      {/* <button>Add to cart</button> */}
                     </div>
                 )}
             </div>) : 
@@ -227,7 +231,9 @@ function Home() {
                         </p>
                         ₹{detail.price}<br/>
                       </div>
-                      {/* <button>Add to cart</button> */}
+                      <div style={{padding:'10px'}}>
+                        <Link to='/Details' state={detail}><button className='book-btn'>Open</button></Link>
+                      </div>
                     </div>
                     </CustomWidthTooltip>
                 )}

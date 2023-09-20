@@ -8,6 +8,9 @@ import Inventory from './Components/Inventory';
 import Update from './Components/Update';
 import Delete from './Components/Delete';
 import Signup from './Components/Signup';
+import Details from './Components/Details';
+import MainHome from './Components/MainHome';
+
 
 function App() {
   return (
@@ -16,7 +19,9 @@ function App() {
       <Routes>
           <Route index path='/' element={<Login/>}/>
           <Route path='/Signup' element={<Signup/>}/>
+          <Route path='/MainHome' element={<MainHome/>}/>
           <Route path="/Home" element={<Home/>}/>
+          <Route path="/Details" element={<Details/>}/>
           <Route path="/About" element={<About/>}/>
           <Route path="/Inventory" element={<Inventory/>}/>
           <Route path="/Add" element={<Add/>}/>
